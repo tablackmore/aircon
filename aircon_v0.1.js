@@ -25,21 +25,11 @@ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ********************************************************************/
-//Copyright 2011 Tom Blackmore
-//BSD licensed
-var aircon = (function() {
+var ac = (function() {
 
     if(window.applicationCache) {
         var appCache = window.applicationCache;
-        /*var stampDate = function() {
-            var d = new Date();
-            localStorage["ac_last_update"] =  d.getDate() + "-" + (d.getMonth() + 1) + "-" + d.getFullYear();
-        };
-        appCache.addEventListener("cached", stampDate, false);
-        appCache.addEventListener("updateready", stampDate, false);
-        appCache.addEventListener("obsolete", function() {
-            localStorage["ac_last_update"] = null;
-        }, false);*/
+        
         var log = (function() {
             var cacheEvents = [];
             /* event comments taken from
@@ -120,7 +110,6 @@ var aircon = (function() {
 
                 log("AC: - logging started -");
                 log("AC: "  + message);
-                //log("AC: date: " + localStorage["ac_last_update"]);
 
                 for(var i=0; i < cacheEvents.length; i++) {
                     appCache.addEventListener(cacheEvents[i], logEvent, false);
@@ -170,4 +159,4 @@ var aircon = (function() {
         };
     }
 })();
-aircon.log.start();
+ac.log.start();
