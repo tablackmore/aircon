@@ -1,4 +1,4 @@
-This is a really simple way of adding chrome console like logging to your iOS web app. Simply add the aircon_mini_v0.1.js script to your HTML web page and add it your cahce manifest file. Viola you have info on what your cache status is like on your device. 
+This is a really simple way of adding chrome style application cache console logging to your iOS web app. Simply add the aircon_mini_v0.1.js script to your HTML web page and add it your cahce manifest file. Viola you have info on what your cache status is like on your device. 
 
 If you want to work with it on Android but don't want to have to mess about with logs just change console.log to something more practical.
 
