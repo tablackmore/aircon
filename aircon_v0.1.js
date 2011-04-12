@@ -129,9 +129,7 @@ var ac = (function() {
                 online = (isOnline()) ? 'yes' : 'no';
                 status = cacheStatusValues[appCache.status];
                 type = e.type;
-                //message = 'o: ' + online;
                 message=  type;
-                //message+= ', s: ' + status;
                 log('AC: '+ message);
 
                 if (type == 'error' && navigator.onLine) {
