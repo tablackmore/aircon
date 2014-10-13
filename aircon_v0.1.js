@@ -34,7 +34,6 @@ var ac = (function() {
             var cacheEvents = [];
             /* event comments taken from
             http://dev.opera.com/articles/view/offline-applications-html5-appcache/ */
-
             // cached: This is fired when all the resources have finished downloading, and
             // application is cached.
             cacheEvents[0] = 'cached';
@@ -97,6 +96,7 @@ var ac = (function() {
             var log = function(s) {
                 console.log(s);
             };
+            
             var start = function(func) {
                 if(typeof(func) === "function") {
                     log = func;
@@ -115,15 +115,18 @@ var ac = (function() {
                     appCache.addEventListener(cacheEvents[i], logEvent, false);
                 }
             };
+            
             var stop = function() {
                 log("AC: - logging stoped -");
                 for(var i=0; i < cacheEvents.length; i++) {
                     appCache.removeEventListener(cacheEvents[i], null, false);
                 }
             };
+            
             var isOnline = function() {
                 return navigator.onLine;
             };
+            
             var logEvent = function(e) {
                 var online, status, type, message;
                 online = (isOnline()) ? 'yes' : 'no';
@@ -138,23 +141,30 @@ var ac = (function() {
                     log("AC: " + message);
                 }
             };
+            
             return {
                 start: start,
                 stop: stop
-            }
-        })();
+            };
+            
+        }());
+        
         return {
             log : log
         };
+        
     } else {
+       
         return {
             log : (function() {
                 return {
                     start: function() {
                     }
                 };
-            })()
+            }());
         };
+        
     }
-})();
+}());
+
 ac.log.start();
